@@ -67,6 +67,13 @@ def fetch_code(
         print(f"An unexpected error occurred: {ex}")
 
 def main():
+    print("""
+              offch.com Voucher Code Generator
+              
+              github :
+              https://github.com/Rust-sepiol/offch-snappfood
+
+          """)
     categories = {'Food': 1, 'Miveh': 2, 'Shirini': 3, 'Labaniat': 4, 'Attari': 5}
     CategoryCode = {1: 9191, 2: 3206, 3: 412, 4: 11169, 5: 5426}
 
@@ -96,5 +103,9 @@ def main():
         with ThreadPoolExecutor(max_workers=NUM_WORKERS) as executor:
             executor.map(lambda p: fetch_code(*p), args)
 
+    print(f"""
+          +-----------------------------------------+
+          Done! {len(CodesList)} codes have been generated and saved to {file_path}.
+          """)
 if __name__ == "__main__":
     main()
